@@ -54,12 +54,11 @@ public class OrderCreationTest {
     public void testCreateOrderWithValidIngredients() {
         // Создаем заказ с валидными ингредиентами
         Order order = DataFactory.createOrderWithValidIngredients();
-
         // Отправляем запрос на создание заказа
         Response response = apiClient.createOrder(createdUserToken, order);
-
         // Проверяем, что заказ успешно создан
-        response.then().statusCode(SC_OK);
+        response.then()
+                .statusCode(SC_OK);
     }
 
     @Test
@@ -68,12 +67,13 @@ public class OrderCreationTest {
     public void testCreateOrderWithoutIngredients() {
         // Создаем заказ без ингредиентов
         Order order = DataFactory.createOrderWithoutIngredients();
-
         // Отправляем запрос на создание заказа
         Response response = apiClient.createOrder(createdUserToken, order);
-
         // Проверяем, что сервер возвращает ошибку 400
-        response.then().statusCode(SC_BAD_REQUEST);
+        response.then()
+                .statusCode(SC_BAD_REQUEST)
+                .body("success", equalTo(false))
+                .body("message", equalTo("Ingredient ids must be provided"));
     }
 
     @Test
@@ -82,12 +82,13 @@ public class OrderCreationTest {
     public void testCreateOrderWithoutAuthorization() {
         // Создаем заказ с валидными ингредиентами
         Order order = DataFactory.createOrderWithValidIngredients();
-
         // Отправляем запрос на создание заказа без токена
         Response response = apiClient.createOrder(null, order);
-
         // Проверяем, что сервер возвращает ошибку 401
-        response.then().statusCode(SC_UNAUTHORIZED);
+        response.then()
+                .statusCode(SC_UNAUTHORIZED)
+                .body("success", equalTo(false))
+                .body("message", equalTo("You should be authorised"));
     }
 
     @Test
@@ -96,11 +97,11 @@ public class OrderCreationTest {
     public void testCreateOrderWithInvalidIngredients() {
         // Создаем заказ с неверными ингредиентами
         Order order = DataFactory.createOrderWithInvalidIngredients();
-
         // Отправляем запрос на создание заказа
         Response response = apiClient.createOrder(createdUserToken, order);
-
-        // Проверяем, что сервер возвращает ошибку 400
-        response.then().statusCode(SC_INTERNAL_SERVER_ERROR);
+        // Проверяем, что сервер возвращает ошибку 500
+        response.then()
+                .statusCode(SC_INTERNAL_SERVER_ERROR)
+                .body("success", equalTo(false));
     }
 }

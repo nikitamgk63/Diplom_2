@@ -10,8 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.apache.http.HttpStatus.SC_OK;
-import static org.apache.http.HttpStatus.SC_UNAUTHORIZED;
+import static org.apache.http.HttpStatus.*;
+import static org.hamcrest.Matchers.equalTo;
 
 public class UserLoginTest {
 
@@ -22,15 +22,15 @@ public class UserLoginTest {
     @Before
     public void setUp() {
         apiClient = new ApiClient();
-        createdUser = DataFactory.createUniqueUser(); // Создаем уникального пользователя
-        Response response = apiClient.createUser(createdUser); // Создаем пользователя через API
-        createdUserToken = response.path("accessToken"); // Сохраняем токен
+        createdUser = DataFactory.createUniqueUser();
+        Response response = apiClient.createUser(createdUser);
+        createdUserToken = response.path("accessToken");
     }
 
     @After
     public void tearDown() {
         if (createdUserToken != null) {
-            apiClient.deleteUser(createdUserToken); // Удаляем пользователя после тестов
+            apiClient.deleteUser(createdUserToken);
         }
     }
 
@@ -38,15 +38,37 @@ public class UserLoginTest {
     @DisplayName("Логин под существующим пользователем")
     @Description("Проверка успешного входа в систему для существующего пользователя")
     public void testLoginExistingUser() {
-        Response loginResponse = apiClient.loginUser(createdUser.getEmail(), createdUser.getPassword()); // Используем email и пароль созданного пользователя
-        loginResponse.then().statusCode(SC_OK); // Проверяем, что логин успешен
+        // Пытаемся авторизоваться с правильными данными
+        Response loginResponse = apiClient.loginUser(createdUser.getEmail(), createdUser.getPassword());
+        // Проверяем успешную авторизацию
+        loginResponse.then()
+                .statusCode(SC_OK)
+                .body("success", equalTo(true));
     }
 
     @Test
-    @DisplayName("Логин с неверными данными")
-    @Description("Проверка, что нельзя войти в систему с неверным паролем")
-    public void testLoginWithInvalidCredentials() {
-        Response loginResponse = apiClient.loginUser(createdUser.getEmail(), "wrongPassword"); // Используем неверный пароль
-        loginResponse.then().statusCode(SC_UNAUTHORIZED); // Ожидаем ошибку 401
+    @DisplayName("Логин с неверным паролем")
+    @Description("Проверка ошибки при вводе неверного пароля")
+    public void testLoginWithWrongPassword() {
+        // Пытаемся авторизоваться с неверным паролем
+        Response loginResponse = apiClient.loginUser(createdUser.getEmail(), "wrongPassword");
+        // Проверяем ошибку авторизации
+        loginResponse.then()
+                .statusCode(SC_UNAUTHORIZED)
+                .body("success", equalTo(false))
+                .body("message", equalTo("email or password are incorrect"));
+    }
+
+    @Test
+    @DisplayName("Логин с неверным email")
+    @Description("Проверка ошибки при вводе неверного email")
+    public void testLoginWithWrongEmail() {
+        // Пытаемся авторизоваться с неверным email
+        Response loginResponse = apiClient.loginUser("wrong@email.com", createdUser.getPassword());
+        // Проверяем ошибку авторизации
+        loginResponse.then()
+                .statusCode(SC_UNAUTHORIZED)
+                .body("success", equalTo(false))
+                .body("message", equalTo("email or password are incorrect"));
     }
 }

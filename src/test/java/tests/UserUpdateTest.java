@@ -33,23 +33,76 @@ public class UserUpdateTest {
     }
 
     @Test
-    @DisplayName("Изменение данных пользователя с авторизацией")
-    @Description("Проверка возможности изменения данных пользователя с авторизацией")
-    public void testUpdateUserWithAuthorization() {
-        User updatedUser = new User("updated.email@example.com", "newPassword123", "UpdatedUser");
-        Response response = apiClient.updateUser(createdUserToken, updatedUser);
-        response.then().statusCode(SC_OK)
-                .body("user.email", equalTo(updatedUser.getEmail()))
-                .body("user.name", equalTo(updatedUser.getName()));
+    @DisplayName("Успешное обновление email пользователя")
+    @Description("Проверка изменения email авторизованного пользователя")
+    public void testUpdateUserEmail() {
+        // Подготовка данных: генерируем новый email
+        User emailUpdate = DataFactory.createUserWithNewEmail();
+        // Отправка запроса на обновление
+        Response response = apiClient.updateUser(createdUserToken, emailUpdate);
+        // Проверки:
+        response.then()
+                .statusCode(SC_OK)
+                .body("success", equalTo(true))
+                .body("user.email", equalTo(emailUpdate.getEmail()));
     }
 
     @Test
-    @DisplayName("Изменение данных пользователя без авторизации")
-    @Description("Проверка ошибки при попытке изменения данных пользователя без авторизации")
+    @DisplayName("Успешное обновление имени пользователя")
+    @Description("Проверка изменения имени пользователя")
+    public void testUpdateUserName() {
+        // Подготовка данных: генерируем новое имя
+        User nameUpdate = DataFactory.createUserWithNewName();
+        // Отправка запроса на обновление
+        Response response = apiClient.updateUser(createdUserToken, nameUpdate);
+        // Проверки:
+        response.then()
+                .statusCode(SC_OK)
+                .body("success", equalTo(true))
+                .body("user.name", equalTo(nameUpdate.getName()));
+    }
+
+    @Test
+    @DisplayName("Успешное обновление пароля пользователя")
+    @Description("Проверка изменения пароля пользователя")
+    public void testUpdateUserPassword() {
+        // Подготовка данных: генерируем новый пароль
+        User passwordUpdate = DataFactory.createUserWithNewPassword();
+        // Отправка запроса на обновление
+        Response response = apiClient.updateUser(createdUserToken, passwordUpdate);
+        // Проверки:
+        response.then()
+                .statusCode(SC_OK)
+                .body("success", equalTo(true));
+    }
+
+    @Test
+    @DisplayName("Попытка обновления без авторизации")
+    @Description("Проверка ошибки при обновлении данных без токена авторизации")
     public void testUpdateUserWithoutAuthorization() {
-        User updatedUser = new User("updated.email@example.com", "newPassword123", "UpdatedUser");
-        Response response = apiClient.updateUser(null, updatedUser);
-        response.then().statusCode(SC_UNAUTHORIZED)
+        // Подготовка данных: генерируем новые данные
+        User updates = DataFactory.createUserWithNewData();
+        // Отправка запроса без токена
+        Response response = apiClient.updateUser(null, updates);
+        // Проверки:
+        response.then()
+                .statusCode(SC_UNAUTHORIZED)
+                .body("success", equalTo(false))
+                .body("message", equalTo("You should be authorised"));
+    }
+
+    @Test
+    @DisplayName("Попытка обновления с неверным токеном")
+    @Description("Проверка ошибки при обновлении с невалидным токеном")
+    public void testUpdateUserWithInvalidToken() {
+        // Подготовка данных
+        User updates = DataFactory.createUserWithNewEmail();
+        // Отправка запроса с неверным токеном
+        Response response = apiClient.updateUser("invalid_token", updates);
+        // Проверки:
+        response.then()
+                .statusCode(SC_UNAUTHORIZED)
+                .body("success", equalTo(false))
                 .body("message", equalTo("You should be authorised"));
     }
 }

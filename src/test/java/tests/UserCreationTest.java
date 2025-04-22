@@ -34,9 +34,15 @@ public class UserCreationTest {
     @DisplayName("Создание уникального пользователя")
     @Description("Проверка создания пользователя с уникальными данными")
     public void testCreateUniqueUser() {
+        // Создаем пользователя с уникальными данными
         User user = DataFactory.createUniqueUser();
+        // Отправляем запрос на создание пользователя
         Response response = apiClient.createUser(user);
-        response.then().statusCode(SC_OK);
+        // Проверяем успешное создание
+        response.then()
+                .statusCode(SC_OK)
+                .body("success", equalTo(true));
+        // Сохраняем токен для последующего удаления
         createdUserToken = response.path("accessToken");
     }
 
@@ -44,20 +50,61 @@ public class UserCreationTest {
     @DisplayName("Создание уже зарегистрированного пользователя")
     @Description("Проверка ошибки при попытке создания пользователя, который уже существует")
     public void testCreateDuplicateUser() {
+        // Создаем первого пользователя
         User user = DataFactory.createUniqueUser();
         apiClient.createUser(user);
+        // Пытаемся создать такого же пользователя повторно
         Response response = apiClient.createUser(user);
-        response.then().statusCode(SC_FORBIDDEN)
+        // Проверяем ошибку дублирования
+        response.then()
+                .statusCode(SC_FORBIDDEN)
+                .body("success", equalTo(false))
                 .body("message", equalTo("User already exists"));
     }
 
     @Test
-    @DisplayName("Создание пользователя без обязательного поля")
-    @Description("Проверка ошибки при попытке создать пользователя без обязательного поля")
-    public void testCreateUserMissingField() {
-        User user = DataFactory.createUserWithMissingField();
+    @DisplayName("Создание пользователя без email")
+    @Description("Проверка ошибки при попытке создать пользователя без указания email")
+    public void testCreateUserWithoutEmail() {
+        // Создаем пользователя без email
+        User user = DataFactory.createUserWithoutEmail();
+        // Отправляем запрос
         Response response = apiClient.createUser(user);
-        response.then().statusCode(SC_FORBIDDEN)
+        // Проверяем ошибку валидации
+        response.then()
+                .statusCode(SC_FORBIDDEN)
+                .body("success", equalTo(false))
                 .body("message", equalTo("Email, password and name are required fields"));
     }
+
+    @Test
+    @DisplayName("Создание пользователя без пароля")
+    @Description("Проверка ошибки при попытке создать пользователя без указания пароля")
+    public void testCreateUserWithoutPassword() {
+        // Создаем пользователя без пароля
+        User user = DataFactory.createUserWithoutPassword();
+        // Отправляем запрос
+        Response response = apiClient.createUser(user);
+        // Проверяем ошибку валидации
+        response.then()
+                .statusCode(SC_FORBIDDEN)
+                .body("success", equalTo(false))
+                .body("message", equalTo("Email, password and name are required fields"));
+    }
+
+    @Test
+    @DisplayName("Создание пользователя без имения")
+    @Description("Проверка ошибки при попытке создать пользователя без указания имени")
+    public void testCreateUserWithoutName() {
+        // Создаем пользователя без имени
+        User user = DataFactory.createUserWithoutName();
+        // Отправляем запрос
+        Response response = apiClient.createUser(user);
+        // Проверяем ошибку валидации
+        response.then()
+                .statusCode(SC_FORBIDDEN)
+                .body("success", equalTo(false))
+                .body("message", equalTo("Email, password and name are required fields"));
+    }
+
 }

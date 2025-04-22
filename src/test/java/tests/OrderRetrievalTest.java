@@ -36,8 +36,11 @@ public class OrderRetrievalTest {
     @DisplayName("Получение заказов авторизованного пользователя")
     @Description("Проверка успешного получения заказов для авторизованного пользователя")
     public void testGetOrdersWithAuthorization() {
+        // Отправляем запрос на получение заказов с валидным токеном
         Response response = apiClient.getUserOrders(createdUserToken);
-        response.then().statusCode(SC_OK)
+        // Проверяем успешный ответ
+        response.then()
+                .statusCode(SC_OK)
                 .body("success", equalTo(true));
     }
 
@@ -45,8 +48,11 @@ public class OrderRetrievalTest {
     @DisplayName("Получение заказов неавторизованного пользователя")
     @Description("Проверка ошибки при попытке получить заказы без авторизации")
     public void testGetOrdersWithoutAuthorization() {
+        // Отправляем запрос на получение заказов без токена
         Response response = apiClient.getUserOrders(null);
-        response.then().statusCode(SC_UNAUTHORIZED)
+        // Проверяем ошибку авторизации
+        response.then()
+                .statusCode(SC_UNAUTHORIZED)
                 .body("message", equalTo("You should be authorised"));
     }
 }

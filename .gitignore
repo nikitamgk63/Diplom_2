@@ -1,12 +1,19 @@
-target/
+# Игнорировать всё в target кроме Allure отчетов
+target/*
+!target/allure-report/
+!target/allure-results/
+
+# Исключения для Maven
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-### Игнорируем папку .allure###
-.allure
 
+# Allure настройки (игнорируем локальную папку .allure)
+.allure/
+
+# IDE файлы
 ### IntelliJ IDEA ###
-.idea/*
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -26,6 +33,8 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# Build directories
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -35,3 +44,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Локальные настройки
+*.properties
+*.log
+*.tmp
