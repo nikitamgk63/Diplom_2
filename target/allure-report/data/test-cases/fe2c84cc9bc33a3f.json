@@ -1,0 +1,126 @@
+{
+  "uid" : "fe2c84cc9bc33a3f",
+  "name" : "Попытка обновления с неверным токеном",
+  "fullName" : "tests.UserUpdateTest.testUpdateUserWithInvalidToken",
+  "historyId" : "da4662ae11c5ea95cbc2e04b48935553",
+  "time" : {
+    "start" : 1745774313920,
+    "stop" : 1745774315053,
+    "duration" : 1133
+  },
+  "description" : "Проверка ошибки при обновлении с невалидным токеном",
+  "descriptionHtml" : "<p>Проверка ошибки при обновлении с невалидным токеном</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Проверка ошибки при обновлении с невалидным токеном",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: angelika.connelly@gmail.com",
+      "time" : {
+        "start" : 1745774313920,
+        "stop" : 1745774314180,
+        "duration" : 260
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@1b0db8b1"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Изменение данных пользователя",
+      "time" : {
+        "start" : 1745774314191,
+        "stop" : 1745774314335,
+        "duration" : 144
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "invalid_token"
+      }, {
+        "name" : "updatedUser",
+        "value" : "models.User@5a96081a"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя с токеном: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmU0OWVkMjgwMDAxYjVkNmRkMCIsImlhdCI6MTc0NTc3NDMwOCwiZXhwIjoxNzQ1Nzc1NTA4fQ.kFgovArWqa8OPoiSeCJGCshQdAjAlzflnUH0g4Uj6xc",
+      "time" : {
+        "start" : 1745774314362,
+        "stop" : 1745774315053,
+        "duration" : 691
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmU0OWVkMjgwMDAxYjVkNmRkMCIsImlhdCI6MTc0NTc3NDMwOCwiZXhwIjoxNzQ1Nzc1NTA4fQ.kFgovArWqa8OPoiSeCJGCshQdAjAlzflnUH0g4Uj6xc"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.UserUpdateTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testUpdateUserWithInvalidToken"
+  }, {
+    "name" : "suite",
+    "value" : "tests.UserUpdateTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-UG3QINL"
+  }, {
+    "name" : "thread",
+    "value" : "18176@DESKTOP-UG3QINL.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fe2c84cc9bc33a3f.json",
+  "parameterValues" : [ ]
+}

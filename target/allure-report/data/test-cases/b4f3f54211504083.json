@@ -1,0 +1,123 @@
+{
+  "uid" : "b4f3f54211504083",
+  "name" : "Создание уже зарегистрированного пользователя",
+  "fullName" : "tests.UserCreationTest.testCreateDuplicateUser",
+  "historyId" : "c54be861086c8b6b730fe55d1bd9d550",
+  "time" : {
+    "start" : 1745774303850,
+    "stop" : 1745774305003,
+    "duration" : 1153
+  },
+  "description" : "Проверка ошибки при попытке создания пользователя, который уже существует",
+  "descriptionHtml" : "<p>Проверка ошибки при попытке создания пользователя, который уже существует</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Проверка ошибки при попытке создания пользователя, который уже существует",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: brenton.ruecker@gmail.com",
+      "time" : {
+        "start" : 1745774303851,
+        "stop" : 1745774304087,
+        "duration" : 236
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@302fa67a"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание пользователя: brenton.ruecker@gmail.com",
+      "time" : {
+        "start" : 1745774304087,
+        "stop" : 1745774304245,
+        "duration" : 158
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@302fa67a"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя с токеном: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmRhOWVkMjgwMDAxYjVkNmRiZiIsImlhdCI6MTc0NTc3NDI5OCwiZXhwIjoxNzQ1Nzc1NDk4fQ.LBtUG5YPRpoun818jkCEqAZNnKmqUNEF8xwWXfsBjZY",
+      "time" : {
+        "start" : 1745774304286,
+        "stop" : 1745774305003,
+        "duration" : 717
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmRhOWVkMjgwMDAxYjVkNmRiZiIsImlhdCI6MTc0NTc3NDI5OCwiZXhwIjoxNzQ1Nzc1NDk4fQ.LBtUG5YPRpoun818jkCEqAZNnKmqUNEF8xwWXfsBjZY"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.UserCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateDuplicateUser"
+  }, {
+    "name" : "suite",
+    "value" : "tests.UserCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-UG3QINL"
+  }, {
+    "name" : "thread",
+    "value" : "18176@DESKTOP-UG3QINL.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b4f3f54211504083.json",
+  "parameterValues" : [ ]
+}

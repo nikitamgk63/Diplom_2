@@ -1,0 +1,126 @@
+{
+  "uid" : "6b92756026fa0080",
+  "name" : "Создание заказа с неверными ингредиентами",
+  "fullName" : "tests.OrderCreationTest.testCreateOrderWithInvalidIngredients",
+  "historyId" : "1c6d3793db8237e64dd8e9e9c3e59306",
+  "time" : {
+    "start" : 1745774300132,
+    "stop" : 1745774301279,
+    "duration" : 1147
+  },
+  "description" : "Проверка ошибки при создании заказа с неверными идентификаторами ингредиентов",
+  "descriptionHtml" : "<p>Проверка ошибки при создании заказа с неверными идентификаторами ингредиентов</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Проверка ошибки при создании заказа с неверными идентификаторами ингредиентов",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: junie.reynolds@yahoo.com",
+      "time" : {
+        "start" : 1745774300132,
+        "stop" : 1745774300388,
+        "duration" : 256
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@3f3e6c03"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание заказа",
+      "time" : {
+        "start" : 1745774300419,
+        "stop" : 1745774300596,
+        "duration" : 177
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmQ2OWVkMjgwMDAxYjVkNmRiOSIsImlhdCI6MTc0NTc3NDI5NCwiZXhwIjoxNzQ1Nzc1NDk0fQ.e3dHNmpBTxf5YLNN6_xaHhNORicQlgbOY5_RKrGWZG4"
+      }, {
+        "name" : "order",
+        "value" : "models.Order@629fc74d"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя с токеном: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmQ2OWVkMjgwMDAxYjVkNmRiOSIsImlhdCI6MTc0NTc3NDI5NCwiZXhwIjoxNzQ1Nzc1NDk0fQ.e3dHNmpBTxf5YLNN6_xaHhNORicQlgbOY5_RKrGWZG4",
+      "time" : {
+        "start" : 1745774300597,
+        "stop" : 1745774301278,
+        "duration" : 681
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmQ2OWVkMjgwMDAxYjVkNmRiOSIsImlhdCI6MTc0NTc3NDI5NCwiZXhwIjoxNzQ1Nzc1NDk0fQ.e3dHNmpBTxf5YLNN6_xaHhNORicQlgbOY5_RKrGWZG4"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.OrderCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateOrderWithInvalidIngredients"
+  }, {
+    "name" : "suite",
+    "value" : "tests.OrderCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-UG3QINL"
+  }, {
+    "name" : "thread",
+    "value" : "18176@DESKTOP-UG3QINL.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6b92756026fa0080.json",
+  "parameterValues" : [ ]
+}

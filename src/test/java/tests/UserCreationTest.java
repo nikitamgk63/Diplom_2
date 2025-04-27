@@ -16,7 +16,8 @@ import static org.hamcrest.Matchers.equalTo;
 public class UserCreationTest {
 
     private ApiClient apiClient;
-    private String createdUserToken;
+    private User testUser;
+    private Response creationResponse;
 
     @Before
     public void setUp() {
@@ -25,8 +26,15 @@ public class UserCreationTest {
 
     @After
     public void tearDown() {
-        if (createdUserToken != null) {
-            apiClient.deleteUser(createdUserToken);
+        try {
+            if (creationResponse != null && creationResponse.getStatusCode() == SC_OK) {
+                String token = creationResponse.path("accessToken");
+                if (token != null) {
+                    apiClient.deleteUser(token);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Ошибка при удалении пользователя: " + e.getMessage());
         }
     }
 
@@ -35,15 +43,13 @@ public class UserCreationTest {
     @Description("Проверка создания пользователя с уникальными данными")
     public void testCreateUniqueUser() {
         // Создаем пользователя с уникальными данными
-        User user = DataFactory.createUniqueUser();
+        testUser = DataFactory.createUniqueUser();
         // Отправляем запрос на создание пользователя
-        Response response = apiClient.createUser(user);
+        creationResponse = apiClient.createUser(testUser);
         // Проверяем успешное создание
-        response.then()
+        creationResponse.then()
                 .statusCode(SC_OK)
                 .body("success", equalTo(true));
-        // Сохраняем токен для последующего удаления
-        createdUserToken = response.path("accessToken");
     }
 
     @Test
@@ -51,10 +57,10 @@ public class UserCreationTest {
     @Description("Проверка ошибки при попытке создания пользователя, который уже существует")
     public void testCreateDuplicateUser() {
         // Создаем первого пользователя
-        User user = DataFactory.createUniqueUser();
-        apiClient.createUser(user);
+        testUser = DataFactory.createUniqueUser();
+        creationResponse = apiClient.createUser(testUser);
         // Пытаемся создать такого же пользователя повторно
-        Response response = apiClient.createUser(user);
+        Response response = apiClient.createUser(testUser);
         // Проверяем ошибку дублирования
         response.then()
                 .statusCode(SC_FORBIDDEN)

@@ -1,0 +1,126 @@
+{
+  "uid" : "4cc66781f747646b",
+  "name" : "Создание заказа с авторизацией",
+  "fullName" : "tests.OrderCreationTest.testCreateOrderAuthorized",
+  "historyId" : "5d9b2f7dac756a49a3f5c0140f265308",
+  "time" : {
+    "start" : 1745774296320,
+    "stop" : 1745774300130,
+    "duration" : 3810
+  },
+  "description" : "Проверка успешного создания заказа с авторизацией",
+  "descriptionHtml" : "<p>Проверка успешного создания заказа с авторизацией</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Проверка успешного создания заказа с авторизацией",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание пользователя: minh.rodriguez@hotmail.com",
+      "time" : {
+        "start" : 1745774296321,
+        "stop" : 1745774296582,
+        "duration" : 261
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@5d38758a"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание заказа",
+      "time" : {
+        "start" : 1745774296594,
+        "stop" : 1745774299496,
+        "duration" : 2902
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmQyOWVkMjgwMDAxYjVkNmRiNiIsImlhdCI6MTc0NTc3NDI5MCwiZXhwIjoxNzQ1Nzc1NDkwfQ.xvJlg-5qiYAnUBOCLI6X8aa3arThNBEORTWpftsTJ98"
+      }, {
+        "name" : "order",
+        "value" : "models.Order@201c1d99"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя с токеном: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmQyOWVkMjgwMDAxYjVkNmRiNiIsImlhdCI6MTc0NTc3NDI5MCwiZXhwIjoxNzQ1Nzc1NDkwfQ.xvJlg-5qiYAnUBOCLI6X8aa3arThNBEORTWpftsTJ98",
+      "time" : {
+        "start" : 1745774299513,
+        "stop" : 1745774300129,
+        "duration" : 616
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "token",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU2NmQyOWVkMjgwMDAxYjVkNmRiNiIsImlhdCI6MTc0NTc3NDI5MCwiZXhwIjoxNzQ1Nzc1NDkwfQ.xvJlg-5qiYAnUBOCLI6X8aa3arThNBEORTWpftsTJ98"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.OrderCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateOrderAuthorized"
+  }, {
+    "name" : "suite",
+    "value" : "tests.OrderCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-UG3QINL"
+  }, {
+    "name" : "thread",
+    "value" : "18176@DESKTOP-UG3QINL.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4cc66781f747646b.json",
+  "parameterValues" : [ ]
+}

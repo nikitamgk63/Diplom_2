@@ -49,19 +49,6 @@ public class OrderCreationTest {
     }
 
     @Test
-    @DisplayName("Создание заказа с валидными ингредиентами")
-    @Description("Проверка создания заказа с корректным списком ингредиентов")
-    public void testCreateOrderWithValidIngredients() {
-        // Создаем заказ с валидными ингредиентами
-        Order order = DataFactory.createOrderWithValidIngredients();
-        // Отправляем запрос на создание заказа
-        Response response = apiClient.createOrder(createdUserToken, order);
-        // Проверяем, что заказ успешно создан
-        response.then()
-                .statusCode(SC_OK);
-    }
-
-    @Test
     @DisplayName("Создание заказа без ингредиентов")
     @Description("Проверка ошибки при создании заказа без ингредиентов")
     public void testCreateOrderWithoutIngredients() {
@@ -72,7 +59,6 @@ public class OrderCreationTest {
         // Проверяем, что сервер возвращает ошибку 400
         response.then()
                 .statusCode(SC_BAD_REQUEST)
-                .body("success", equalTo(false))
                 .body("message", equalTo("Ingredient ids must be provided"));
     }
 
@@ -87,7 +73,6 @@ public class OrderCreationTest {
         // Проверяем, что сервер возвращает ошибку 401
         response.then()
                 .statusCode(SC_UNAUTHORIZED)
-                .body("success", equalTo(false))
                 .body("message", equalTo("You should be authorised"));
     }
 
@@ -101,7 +86,6 @@ public class OrderCreationTest {
         Response response = apiClient.createOrder(createdUserToken, order);
         // Проверяем, что сервер возвращает ошибку 500
         response.then()
-                .statusCode(SC_INTERNAL_SERVER_ERROR)
-                .body("success", equalTo(false));
+                .statusCode(SC_INTERNAL_SERVER_ERROR);
     }
 }

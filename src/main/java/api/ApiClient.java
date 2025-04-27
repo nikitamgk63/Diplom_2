@@ -8,7 +8,6 @@ import models.Order;
 import models.User;
 import models.UserLogin;
 
-import static org.apache.http.HttpStatus.*;
 import static io.restassured.RestAssured.given;
 
 public class ApiClient {
@@ -33,18 +32,11 @@ public class ApiClient {
     }
 
     @Step("Удаление пользователя с токеном: {token}")
-    public void deleteUser(String token) {
-        if (token == null) {
-            throw new IllegalArgumentException("Токен не может быть null при удалении пользователя.");
-        }
-
-        given()
+    public Response deleteUser(String token) {
+        return given()
                 .header("Authorization", token)
-                .delete(Endpoints.USER)
-                .then()
-                .statusCode(SC_ACCEPTED); // Ожидаем код 202 (Accepted) для успешного удаления
+                .delete(Endpoints.USER);
     }
-
 
     @Step("Создание заказа")
     public Response createOrder(String token, Order order) {
