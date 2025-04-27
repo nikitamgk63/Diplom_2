@@ -1,0 +1,191 @@
+[ {
+  "uid" : "9ca724ebdbba4837",
+  "name" : "Создание пользователя без email",
+  "time" : {
+    "start" : 1745774305185,
+    "stop" : 1745774305441,
+    "duration" : 256
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "36d1655ac939eea6",
+  "name" : "Создание уникального пользователя",
+  "time" : {
+    "start" : 1745774305443,
+    "stop" : 1745774306464,
+    "duration" : 1021
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ac3b7e95dba5d460",
+  "name" : "Создание пользователя без имения",
+  "time" : {
+    "start" : 1745774305005,
+    "stop" : 1745774305183,
+    "duration" : 178
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e528d8d614eeaadc",
+  "name" : "Логин под существующим пользователем",
+  "time" : {
+    "start" : 1745774308091,
+    "stop" : 1745774309339,
+    "duration" : 1248
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5a8d7eab60a41f38",
+  "name" : "Создание заказа без авторизации",
+  "time" : {
+    "start" : 1745774290225,
+    "stop" : 1745774295065,
+    "duration" : 4840
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "c52ed2adf3290e0c",
+  "name" : "Попытка обновления без авторизации",
+  "time" : {
+    "start" : 1745774310481,
+    "stop" : 1745774311552,
+    "duration" : 1071
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4cc66781f747646b",
+  "name" : "Создание заказа с авторизацией",
+  "time" : {
+    "start" : 1745774296320,
+    "stop" : 1745774300130,
+    "duration" : 3810
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dadcd683468d1dec",
+  "name" : "Получение заказов неавторизованного пользователя",
+  "time" : {
+    "start" : 1745774301286,
+    "stop" : 1745774302365,
+    "duration" : 1079
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b70060a34f618e4e",
+  "name" : "Успешное обновление email пользователя",
+  "time" : {
+    "start" : 1745774312765,
+    "stop" : 1745774313917,
+    "duration" : 1152
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c3e054a952a07ff3",
+  "name" : "Логин с неверным паролем",
+  "time" : {
+    "start" : 1745774306674,
+    "stop" : 1745774308084,
+    "duration" : 1410
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b4f3f54211504083",
+  "name" : "Создание уже зарегистрированного пользователя",
+  "time" : {
+    "start" : 1745774303850,
+    "stop" : 1745774305003,
+    "duration" : 1153
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b4287d37a26db118",
+  "name" : "Получение заказов авторизованного пользователя",
+  "time" : {
+    "start" : 1745774302368,
+    "stop" : 1745774303843,
+    "duration" : 1475
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dd65c9250bcb10d0",
+  "name" : "Создание пользователя без пароля",
+  "time" : {
+    "start" : 1745774306467,
+    "stop" : 1745774306671,
+    "duration" : 204
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8baa58db534b9bab",
+  "name" : "Создание заказа без ингредиентов",
+  "time" : {
+    "start" : 1745774295143,
+    "stop" : 1745774296317,
+    "duration" : 1174
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6b92756026fa0080",
+  "name" : "Создание заказа с неверными ингредиентами",
+  "time" : {
+    "start" : 1745774300132,
+    "stop" : 1745774301279,
+    "duration" : 1147
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "421437c793ea508d",
+  "name" : "Успешное обновление пароля пользователя",
+  "time" : {
+    "start" : 1745774315060,
+    "stop" : 1745774317429,
+    "duration" : 2369
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5696bcae3d338305",
+  "name" : "Логин с неверным email",
+  "time" : {
+    "start" : 1745774309343,
+    "stop" : 1745774310469,
+    "duration" : 1126
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c2b069ce143bb74c",
+  "name" : "Успешное обновление имени пользователя",
+  "time" : {
+    "start" : 1745774311554,
+    "stop" : 1745774312760,
+    "duration" : 1206
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fe2c84cc9bc33a3f",
+  "name" : "Попытка обновления с неверным токеном",
+  "time" : {
+    "start" : 1745774313920,
+    "stop" : 1745774315053,
+    "duration" : 1133
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

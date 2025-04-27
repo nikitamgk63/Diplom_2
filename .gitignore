@@ -1,0 +1,51 @@
+# Игнорировать всё в target кроме Allure отчетов
+target/*
+!target/allure-report/
+!target/allure-results/
+
+# Исключения для Maven
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Allure настройки (игнорируем локальную папку .allure)
+.allure/
+
+# IDE файлы
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Build directories
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+# Локальные настройки
+*.properties
+*.log
+*.tmp
